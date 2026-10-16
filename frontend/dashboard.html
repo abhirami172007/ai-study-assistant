@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AI Study Assistant</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">&#129302; AI Study</div>
+        <nav>
+            <a href="dashboard.html" class="active">&#128202; Dashboard</a>
+            <a href="ai-tutor.html">&#127891; AI Tutor</a>
+            <a href="study-planner.html">&#128197; Study Planner</a>
+            <a href="ai-quiz.html">&#9889; AI Quiz</a>
+            <a href="study-materials.html">&#128193; Study Materials</a>
+            <a href="progress.html">&#128200; Progress</a>
+            <a href="achievements.html">&#127942; Achievements</a>
+        </nav>
+        <div class="sidebar-bottom">
+            <a href="settings.html">&#9881;&#65039; Settings</a>
+            <a href="index.html" id="logout-link" onclick="logout(); return false;">&#128682; Logout</a>
+        </div>
+    </aside>
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h1>Dashboard</h1>
+                <p>Welcome back to your personalized study workspace.</p>
+            </div>
+            <div class="topbar-right">
+                <div class="agent-badge">
+                    <span class="dot"></span>
+                    <span>Agent: Autonomous & Active</span>
+                </div>
+                <div class="profile-icon" id="profile-icon">👤</div>
+            </div>
+        </header>
+
+        <!-- WELCOME BANNER -->
+        <section class="welcome-card">
+            <div>
+                <span class="welcome-badge">&#9889; AGENTIC AI STUDY COMPANION</span>
+                <h2>Welcome back, <span id="student-name">Student</span>! &#128075;</h2>
+                <p id="student-goal">Your study agent is actively tracking your goals and optimizing your exam schedule.</p>
+            </div>
+            <div class="welcome-robot">&#129302;</div>
+        </section>
+
+        <!-- AUTONOMOUS AGENT LOOP BANNER -->
+        <section class="loop-card">
+            <div class="loop-header">
+                <div>
+                    <span class="loop-badge">Agentic AI Architecture</span>
+                    <h3>Continuous Autonomous Study Feedback Loop</h3>
+                </div>
+                <span class="loop-status">&#9889; Active Self-Regulating Cycle</span>
+            </div>
+            <div class="loop-steps">
+                <div class="loop-step">
+                    <span class="step-num">&#128269; 1</span>
+                    <strong>Understand</strong>
+                    <small>Goals & Syllabus</small>
+                </div>
+                <div class="loop-arrow">&#10140;</div>
+                <div class="loop-step">
+                    <span class="step-num">&#128197; 2</span>
+                    <strong>Plan</strong>
+                    <small>Daily Milestones</small>
+                </div>
+                <div class="loop-arrow">&#10140;</div>
+                <div class="loop-step">
+                    <span class="step-num">&#9889; 3</span>
+                    <strong>Act</strong>
+                    <small>Tutor & Quizzes</small>
+                </div>
+                <div class="loop-arrow">&#10140;</div>
+                <div class="loop-step">
+                    <span class="step-num">&#128200; 4</span>
+                    <strong>Evaluate</strong>
+                    <small>Detect Weak Areas</small>
+                </div>
+                <div class="loop-arrow">&#10140;</div>
+                <div class="loop-step">
+                    <span class="step-num">&#128260; 5</span>
+                    <strong>Adapt</strong>
+                    <small>Remedial Drills</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS GRID -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">&#128218;</div>
+                <div class="stat-info">
+                    <p>Current Subjects</p>
+                    <h3 id="stat-subjects">4</h3>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">&#9889;</div>
+                <div class="stat-info">
+                    <p>Quizzes Taken</p>
+                    <h3 id="stat-quizzes">12</h3>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">&#128200;</div>
+                <div class="stat-info">
+                    <p>Topic Mastery</p>
+                    <h3 id="stat-mastery">78%</h3>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">&#128293;</div>
+                <div class="stat-info">
+                    <p>Study Streak</p>
+                    <h3 id="stat-streak">5 Days</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2-COLUMN MAIN SECTION -->
+        <div class="two-column-layout">
+            <div class="col-left">
+                <!-- STUDY PLAN CARD -->
+                <div class="app-card">
+                    <div class="card-title">
+                        <div class="title-icon">&#128197;</div>
+                        <div>
+                            <h2>Today's Study Milestones</h2>
+                            <p>Generated by your autonomous planning agent</p>
+                        </div>
+                    </div>
+                    <div id="plan-tasks-list">
+                        <!-- Tasks populated dynamically -->
+                    </div>
+                    <div style="margin-top: 20px; display: flex; gap: 12px;">
+                        <a href="study-planner.html" class="primary-button">&#128197; Open Planner</a>
+                        <a href="ai-tutor.html" class="secondary-button">&#127891; Ask AI Tutor</a>
+                    </div>
+                </div>
+
+                <!-- WEAK AREAS CARD -->
+                <div class="app-card">
+                    <div class="card-title">
+                        <div class="title-icon" style="background: #fef2f2; color: #dc2626;">&#9888;&#65039;</div>
+                        <div>
+                            <h2>Identified Weak Areas</h2>
+                            <p>Auto-detected by quiz performance analysis</p>
+                        </div>
+                    </div>
+                    <p style="font-size: 13.5px; color: #6b7280; margin-bottom: 16px;">
+                        Your agent isolated these specific sub-topics where accuracy dipped below 70%. Click to launch an adaptive remedial session:
+                    </p>
+                    <div id="weak-areas-list">
+                        <!-- Weak topics populated dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-right">
+                <!-- PURPLE GRADIENT CARD -->
+                <div class="info-card">
+                    <div class="ai-icon-large">&#129302;</div>
+                    <h2>Agentic AI Insights</h2>
+                    <p>Based on your latest learning activity, here are your agent's real-time recommendations:</p>
+                    <div class="ai-steps">
+                        <div class="step">
+                            <span>1</span>
+                            <div>
+                                <h4>Focus Remedial Practice</h4>
+                                <p>SQL Subqueries accuracy is 58%. A 15-minute review is recommended.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span>2</span>
+                            <div>
+                                <h4>Pacing Ahead</h4>
+                                <p>Python Programming milestones are 2 days ahead of schedule.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span>3</span>
+                            <div>
+                                <h4>Next Achievement</h4>
+                                <p>Complete 1 more quiz with &gt;80% to unlock "Quiz Champion".</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 25px;">
+                        <a href="ai-quiz.html" class="secondary-button" style="background: white; color: #5b4bdb; border: none; font-weight: 700; width: 100%; justify-content: center; padding: 13px;">&#9889; Start Quick Practice Quiz</a>
+                    </div>
+                </div>
+
+                <!-- QUICK ACTIONS CARD -->
+                <div class="app-card">
+                    <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 15px; color: #111827;">Quick Actions</h3>
+                    <div class="quick-links">
+                        <a href="ai-tutor.html" class="quick-link-item">
+                            <span class="ql-icon">&#127891;</span>
+                            <div>
+                                <strong>Chat with AI Tutor</strong>
+                                <small>Ask questions on any subject</small>
+                            </div>
+                            <span class="ql-arrow">&#10140;</span>
+                        </a>
+                        <a href="study-materials.html" class="quick-link-item">
+                            <span class="ql-icon">&#128193;</span>
+                            <div>
+                                <strong>Upload Study Notes</strong>
+                                <small>Summarize slides and documents</small>
+                            </div>
+                            <span class="ql-arrow">&#10140;</span>
+                        </a>
+                        <a href="progress.html" class="quick-link-item">
+                            <span class="ql-icon">&#128200;</span>
+                            <div>
+                                <strong>View Detailed Progress</strong>
+                                <small>Analyze performance curves</small>
+                            </div>
+                            <span class="ql-arrow">&#10140;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

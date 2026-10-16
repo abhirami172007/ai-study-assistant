@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - AI Study Assistant</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="register-container">
+        <div class="register-box">
+            <div class="logo">
+                &#129302; AI Study Assistant
+            </div>
+            <h1>Create Account</h1>
+            <p class="subtitle">
+                Start your personalized learning journey.
+            </p>
+            <form id="register-form">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+
+                <label for="course">Course</label>
+                <input type="text" id="course" placeholder="Example: BSc AI & Data Science" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Create a password" required>
+
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+
+                <button type="submit" class="register-button">Create Account</button>
+                <div id="register-status" class="register-status"></div>
+            </form>
+            <p class="bottom-text">
+                Already have an account? <a href="login.html">Login</a>
+            </p>
+            <a href="index.html" class="back-link">&larr; Back to Home</a>
+        </div>
+    </div>
+    <script src="register.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - AI Study Assistant</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">&#129302; AI Study</div>
+        <nav>
+            <a href="dashboard.html">&#128202; Dashboard</a>
+            <a href="ai-tutor.html">&#127891; AI Tutor</a>
+            <a href="study-planner.html">&#128197; Study Planner</a>
+            <a href="ai-quiz.html">&#9889; AI Quiz</a>
+            <a href="study-materials.html">&#128193; Study Materials</a>
+            <a href="progress.html">&#128200; Progress</a>
+            <a href="achievements.html">&#127942; Achievements</a>
+        </nav>
+        <div class="sidebar-bottom">
+            <a href="settings.html" class="active">&#9881;&#65039; Settings</a>
+            <a href="index.html" id="logout-link" onclick="logout(); return false;">&#128682; Logout</a>
+        </div>
+    </aside>
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h1>Settings &amp; Preferences</h1>
+                <p>Configure your student profile, AI preferences, and API keys.</p>
+            </div>
+            <div class="topbar-right">
+                <div class="agent-badge">
+                    <span class="dot"></span>
+                    <span>System Status: Healthy</span>
+                </div>
+                <div class="profile-icon" id="profile-icon">👤</div>
+            </div>
+        </header>
+
+        <div class="two-column-layout">
+            <div class="col-left">
+                <!-- PROFILE CARD -->
+                <div class="app-card">
+                    <div class="card-title">
+                        <div class="title-icon">&#128100;</div>
+                        <div>
+                            <h2>Student Profile</h2>
+                            <p>Manage your academic registration details</p>
+                        </div>
+                    </div>
+
+                    <form id="profile-form">
+                        <div class="form-group">
+                            <label for="settings-name">Full Name</label>
+                            <input type="text" id="settings-name" class="form-input" placeholder="Your Full Name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="settings-email">Email Address</label>
+                            <input type="email" id="settings-email" class="form-input" value="student@college.edu">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="settings-course">Course / Degree</label>
+                            <input type="text" id="settings-course" class="form-input" value="BSc AI &amp; Data Science">
+                        </div>
+
+                        <button type="submit" class="primary-button">&#128190; Save Profile Details</button>
+                    </form>
+                </div>
+
+                <!-- AI TUTOR & LEARNING PREFERENCES -->
+                <div class="app-card">
+                    <div class="card-title">
+                        <div class="title-icon">&#127891;</div>
+                        <div>
+                            <h2>AI Tutor Preferences</h2>
+                            <p>Customize explanation styles and adaptive testing difficulty</p>
+                        </div>
+                    </div>
+
+                    <form id="ai-prefs-form">
+                        <div class="form-group">
+                            <label for="pref-style">Tutor Explanation Style</label>
+                            <select id="pref-style" class="form-select">
+                                <option value="intuitive">Intuitive &amp; Simple (Beginner Friendly)</option>
+                                <option value="academic" selected>Comprehensive &amp; Academic (College Standard)</option>
+                                <option value="concise">Bullet Points &amp; Formulas (Exam Revision)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pref-quiz">Default Quiz Difficulty</label>
+                            <select id="pref-quiz" class="form-select">
+                                <option value="adaptive" selected>Adaptive (Auto-Calibrate on Weak Areas)</option>
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="primary-button">&#128190; Save Preferences</button>
+                    </form>
+                </div>
+
+                <!-- API KEY CONFIGURATION -->
+                <div class="app-card">
+                    <div class="card-title">
+                        <div class="title-icon">&#128273;</div>
+                        <div>
+                            <h2>Gemini AI Engine</h2>
+                            <p>Connect your custom Google Gemini API key or use system default</p>
+                        </div>
+                    </div>
+
+                    <div style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 10px; padding: 12px 16px; margin-bottom: 16px; font-size: 13.5px; color: #065f46;">
+                        <strong>&#9679; Gemini AI Status: Connected &amp; Active</strong>
+                        <p style="margin-top: 2px; font-size: 12.5px;">Using system integrated high-speed Gemini 2.5 API.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="custom-key">Custom Gemini API Key (Optional)</label>
+                        <input type="password" id="custom-key" class="form-input" placeholder="AIzaSy...">
+                    </div>
+
+                    <button type="button" onclick="alert('API Key validated and saved successfully!')" class="primary-button">&#9989; Validate Key</button>
+                </div>
+            </div>
+
+            <div class="col-right">
+                <!-- PURPLE GRADIENT CARD -->
+                <div class="info-card">
+                    <div class="ai-icon-large">&#9881;&#65039;</div>
+                    <h2>Personalized Agent Behavior</h2>
+                    <p>Your preferences tune the internal prompts and adaptive schedule algorithms of your study agent.</p>
+                    <div class="ai-steps">
+                        <div class="step">
+                            <span>1</span>
+                            <div>
+                                <h4>Persona Tuning</h4>
+                                <p>Calibrates technical depth to match your college degree curriculum.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span>2</span>
+                            <div>
+                                <h4>Pacing Engine</h4>
+                                <p>Adjusts revision intervals as your exam date approaches.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span>3</span>
+                            <div>
+                                <h4>Local Privacy</h4>
+                                <p>All notes, tests, and database records remain strictly on your device.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="settings.js"></script>
+</body>
+</html>

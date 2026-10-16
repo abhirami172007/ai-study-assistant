@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress - AI Study Assistant</title>
+    <link rel="stylesheet" href="progress.css">
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">&#129302; AI Study</div>
+        <nav>
+            <a href="dashboard.html">&#128202; Dashboard</a>
+            <a href="ai-tutor.html">&#127891; AI Tutor</a>
+            <a href="study-planner.html">&#128197; Study Planner</a>
+            <a href="ai-quiz.html">&#9889; AI Quiz</a>
+            <a href="study-materials.html">&#128193; Study Materials</a>
+            <a href="progress.html" class="active">&#128200; Progress</a>
+            <a href="achievements.html">&#127942; Achievements</a>
+        </nav>
+        <div class="sidebar-bottom">
+            <a href="settings.html">&#9881;&#65039; Settings</a>
+            <a href="index.html" id="logout-link" onclick="logout(); return false;">&#128682; Logout</a>
+        </div>
+    </aside>
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h1>Learning Analytics &amp; Progress</h1>
+                <p>Autonomous performance tracking, subject mastery, and weak-area diagnosis.</p>
+            </div>
+            <div class="topbar-right">
+                <div class="agent-badge">
+                    <span class="dot"></span>
+                    <span>Analytics Engine: Active</span>
+                </div>
+                <div class="profile-icon" id="profile-icon">👤</div>
+            </div>
+        </header>
+
+        <!-- STATS GRID -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">&#9200;</div>
+                <div class="stat-info">
+                    <p>Total Study Hours</p>
+                    <h3>28.5 hrs</h3>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">&#128200;</div>
+                <div class="stat-info">
+                    <p>Overall Accuracy</p>
+                    <h3 id="stat-accuracy">82%</h3>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">&#9888;&#65039;</div>
+                <div class="stat-info">
+                    <p>Weak Topics</p>
+                    <h3 id="stat-weak-count" style="color: #dc2626;">3 Active</h3>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">&#128293;</div>
+                <div class="stat-info">
+                    <p>Learning Streak</p>
+                    <h3>5 Days</h3>
+                </div>
+            </div>
+        </section>
+
+        <div class="two-column-layout">
+            <div class="col-left">
+                <!-- SUBJECT MASTERY BREAKDOWN -->
+                <div class="app-card">
+                    <div class="card-title">
+                        <div class="title-icon">&#128202;</div>
+                        <div>
+                            <h2>Subject Mastery Breakdown</h2>
+                            <p>Weighted accuracy across tests, quizzes, and practice drills</p>
+                        </div>
+                    </div>
+
+                    <div class="mastery-row">
+                        <div class="mastery-header">
+                            <span>Python Programming</span>
+                            <span style="color: #10b981;">88%</span>
+                        </div>
+                        <div class="mastery-bar-bg">
+                            <div class="mastery-bar-fill bar-green" style="width: 88%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="mastery-row">
+                        <div class="mastery-header">
+                            <span>Machine Learning &amp; AI</span>
+                            <span style="color: #5b4bdb;">76%</span>
+                        </div>
+                        <div class="mastery-bar-bg">
+                            <div class="mastery-bar-fill bar-purple" style="width: 76%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="mastery-row">
+                        <div class="mastery-header">
+                            <span>Database Systems (DBMS)</span>
+                            <span style="color: #f59e0b;">68%</span>
+                        </div>
+                        <div class="mastery-bar-bg">
+                            <div class="mastery-bar-fill bar-amber" style="width: 68%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="mastery-row">
+                        <div class="mastery-header">
+                            <span>Data Structures &amp; Algorithms</span>
+                            <span style="color: #ef4444;">62%</span>
+                        </div>
+                        <div class="mastery-bar-bg">
+                            <div class="mastery-bar-fill bar-red" style="width: 62%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IDENTIFIED WEAK AREAS & REMEDIAL STATUS -->
+                <div class="app-card">
+                    <div class="card-title">
+                        <div class="title-icon" style="background: #fef2f2; color: #dc2626;">&#9888;&#65039;</div>
+                        <div>
+                            <h2>Identified Weak Areas &amp; Remedial Status</h2>
+                            <p>Isolated concept gaps that require targeted practice</p>
+                        </div>
+                    </div>
+
+                    <div id="weak-topics-container">
+                        <div class="weak-row">
+                            <div class="weak-info">
+                                <strong>SQL Subqueries &amp; Nested Filters</strong>
+                                <span>DBMS • 58% Accuracy • Needs Revision</span>
+                            </div>
+                            <a href="ai-quiz.html?subject=Database%20Systems&topic=SQL%20Subqueries" class="remedial-btn">&#9889; Remedial Quiz</a>
+                        </div>
+                        <div class="weak-row">
+                            <div class="weak-info">
+                                <strong>Binary Search Trees &amp; Traversals</strong>
+                                <span>DSA • 60% Accuracy • Needs Revision</span>
+                            </div>
+                            <a href="ai-quiz.html?subject=Data%20Structures&topic=Binary%20Search%20Trees" class="remedial-btn">&#9889; Remedial Quiz</a>
+                        </div>
+                        <div class="weak-row">
+                            <div class="weak-info">
+                                <strong>Backpropagation Math &amp; Gradients</strong>
+                                <span>Machine Learning • 64% Accuracy • Needs Revision</span>
+                            </div>
+                            <a href="ai-quiz.html?subject=Machine%20Learning&topic=Backpropagation" class="remedial-btn">&#9889; Remedial Quiz</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WEEKLY LEARNING ACTIVITY -->
+                <div class="app-card">
+                    <div class="card-title">
+                        <div class="title-icon">&#128197;</div>
+                        <div>
+                            <h2>Weekly Study Activity</h2>
+                            <p>Daily hours logged across the active week</p>
+                        </div>
+                    </div>
+                    <div class="chart-bars">
+                        <div class="chart-col"><div class="chart-bar-fill" style="height: 60px;"></div><span class="chart-day">Mon</span></div>
+                        <div class="chart-col"><div class="chart-bar-fill" style="height: 90px;"></div><span class="chart-day">Tue</span></div>
+                        <div class="chart-col"><div class="chart-bar-fill active" style="height: 120px;"></div><span class="chart-day">Wed</span></div>
+                        <div class="chart-col"><div class="chart-bar-fill" style="height: 75px;"></div><span class="chart-day">Thu</span></div>
+                        <div class="chart-col"><div class="chart-bar-fill active" style="height: 110px;"></div><span class="chart-day">Fri</span></div>
+                        <div class="chart-col"><div class="chart-bar-fill" style="height: 80px;"></div><span class="chart-day">Sat</span></div>
+                        <div class="chart-col"><div class="chart-bar-fill" style="height: 40px;"></div><span class="chart-day">Sun</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-right">
+                <!-- PURPLE GRADIENT CARD -->
+                <div class="info-card">
+                    <div class="ai-icon-large">&#128200;</div>
+                    <h2>Autonomous Feedback Loop</h2>
+                    <p>The Agentic analytics engine monitors your knowledge curve to prevent forgetting and maximize exam scores.</p>
+                    <div class="ai-steps">
+                        <div class="step">
+                            <span>1</span>
+                            <div>
+                                <h4>Continuous Tracking</h4>
+                                <p>Logs accuracy, response speed, and error patterns in real-time.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span>2</span>
+                            <div>
+                                <h4>Root-Cause Analysis</h4>
+                                <p>Isolates conceptual misconceptions rather than penalizing mistakes.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span>3</span>
+                            <div>
+                                <h4>Targeted Intervention</h4>
+                                <p>Adjusts your study timetable and triggers remedial drills.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QUIZ HISTORY SUMMARY -->
+                <div class="app-card">
+                    <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 15px; color: #111827;">Recent Test History</h3>
+                    <div style="font-size: 13.5px; color: #6b7280; line-height: 1.8;">
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #f1f5f9; padding: 6px 0;">
+                            <span>Python Basics</span>
+                            <strong style="color: #059669;">90% (Pass)</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #f1f5f9; padding: 6px 0;">
+                            <span>SQL Joins &amp; Indexes</span>
+                            <strong style="color: #dc2626;">58% (Review)</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 6px 0;">
+                            <span>Linear Regression Math</span>
+                            <strong style="color: #5b4bdb;">80% (Pass)</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="progress.js"></script>
+</body>
+</html>

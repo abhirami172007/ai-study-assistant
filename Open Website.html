@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Study Assistant - Access Links</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 580px;
+            width: 100%;
+            background: rgba(30, 41, 59, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            text-align: center;
+        }
+        .badge {
+            display: inline-block;
+            background: #10b981;
+            color: #022c22;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        h1 { font-size: 26px; margin-bottom: 8px; color: #ffffff; }
+        p.subtitle { color: #94a3b8; font-size: 14px; margin-bottom: 30px; }
+        .card {
+            background: #0f172a;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .card-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #38bdf8;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card-desc { font-size: 12px; color: #64748b; margin-bottom: 14px; }
+        .btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: white;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #1d4ed8, #2563eb);
+            transform: translateY(-1px);
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            color: #e2e8f0;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .url-box {
+            background: rgba(0,0,0,0.4);
+            border-radius: 8px;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 13px;
+            color: #a5f3fc;
+            word-break: break-all;
+            margin-bottom: 12px;
+            user-select: all;
+        }
+        .note {
+            font-size: 11px;
+            color: #64748b;
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="badge">● SERVER ACTIVE</span>
+        <h1>AI Study Assistant</h1>
+        <p class="subtitle">Access your application locally or share with friends</p>
+
+        <!-- Public Shareable Link -->
+        <div class="card">
+            <div class="card-title">🌐 Shareable Public Link (Send to Friends)</div>
+            <div class="card-desc">Anyone on phone, tablet, or another computer can open this link without setup.</div>
+            <div class="url-box">https://instant-everything-interesting-pas.trycloudflare.com</div>
+            <a href="https://instant-everything-interesting-pas.trycloudflare.com" target="_blank" class="btn btn-primary">Open Public Link</a>
+        </div>
+
+        <!-- Localhost Link -->
+        <div class="card">
+            <div class="card-title">💻 Localhost (Fastest on This Laptop)</div>
+            <div class="card-desc">Direct access on this computer with zero latency.</div>
+            <a href="http://127.0.0.1:8000" target="_blank" class="btn btn-secondary">Open Localhost (127.0.0.1:8000)</a>
+        </div>
+
+        <p class="note">
+            ⚠️ <strong>Important:</strong> Keep your laptop powered on and awake while your friends are using the public link.
+        </p>
+    </div>
+</body>
+</html>

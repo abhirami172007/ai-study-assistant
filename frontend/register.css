@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7ff;
+    color: #1f2937;
+}
+
+
+/* =========================================
+   REGISTER CONTAINER
+========================================= */
+
+.register-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+
+/* =========================================
+   REGISTER BOX
+========================================= */
+
+.register-box {
+    width: 450px;
+    max-width: 100%;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+    text-align: center;
+    color: #5b4bdb;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.register-box h1 {
+    text-align: center;
+    color: #111827;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #6b7280;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 7px;
+    color: #374151;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 17px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #5b4bdb;
+    box-shadow: 0 0 0 3px rgba(91, 75, 219, 0.1);
+}
+
+
+/* =========================================
+   CREATE ACCOUNT BUTTON
+========================================= */
+
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 5px;
+    background: #5b4bdb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #4939c7;
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   LOGIN LINK
+========================================= */
+
+.login-text {
+    text-align: center;
+    margin-top: 22px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.login-text a {
+    color: #5b4bdb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-text a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   BACK HOME
+========================================= */
+
+.back-home {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #5b4bdb;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-home:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+
+    .register-container {
+        padding: 20px 15px;
+    }
+
+    .register-box {
+        padding: 30px 25px;
+        border-radius: 16px;
+    }
+
+    .register-box h1 {
+        font-size: 26px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - AI Study Assistant</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="logo">
+                &#129302; AI Study Assistant
+            </div>
+            <h1>Welcome Back!</h1>
+            <p class="subtitle">
+                Login to continue your learning journey.
+            </p>
+            <form id="login-form">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="student@college.edu" value="abhi@gmail.com" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="********" value="student123" required>
+
+                <button type="submit" class="login-button">Login</button>
+                <div id="login-status" class="login-status"></div>
+            </form>
+            <p class="bottom-text">
+                Don't have an account? <a href="register.html">Create Account</a>
+            </p>
+            <a href="index.html" class="back-link">&larr; Back to Home</a>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

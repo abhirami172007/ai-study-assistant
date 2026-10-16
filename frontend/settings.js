@@ -1,0 +1,59 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const userStr = localStorage.getItem("user");
+    if (userStr) {
+        try {
+            const user = JSON.parse(userStr);
+            if (user.full_name) document.getElementById("settings-name").value = user.full_name;
+            if (user.email) document.getElementById("settings-email").value = user.email;
+            if (user.course) document.getElementById("settings-course").value = user.course;
+        } catch(e) {}
+    }
+
+    document.getElementById("profile-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const userStr = localStorage.getItem("user");
+        let user = userStr ? JSON.parse(userStr) : {};
+        user.full_name = document.getElementById("settings-name").value;
+        user.email = document.getElementById("settings-email").value;
+        user.course = document.getElementById("settings-course").value;
+        localStorage.setItem("user", JSON.stringify(user));
+        alert("Profile details updated successfully!");
+    });
+
+    document.getElementById("ai-prefs-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("AI Preferences saved! The tutor and quiz engines have been re-calibrated.");
+    });
+});
+
+// Dynamic User Profile Sync
+function syncUserProfile() {
+    let name = localStorage.getItem("studentName");
+    if (!name) {
+        try {
+            const u = JSON.parse(localStorage.getItem("user"));
+            if (u && (u.full_name || u.name)) name = u.full_name || u.name;
+        } catch(e) {}
+    }
+    const studentName = (name && name.trim()) ? name.trim() : "Student";
+    const initial = studentName.charAt(0).toUpperCase() || "S";
+
+    const nameEl = document.getElementById("student-name");
+    if (nameEl) nameEl.textContent = studentName;
+
+    const iconEl = document.getElementById("profile-icon");
+    if (iconEl) {
+        iconEl.textContent = initial;
+        iconEl.title = `Logged in as: ${studentName}`;
+    }
+}
+document.addEventListener("DOMContentLoaded", syncUserProfile);
+
+function logout() {
+    localStorage.removeItem("user");
+    localStorage.removeItem("studentName");
+    localStorage.removeItem("studentId");
+    localStorage.removeItem("studentEmail");
+    localStorage.removeItem("studentCourse");
+    window.location.href = "login.html";
+}

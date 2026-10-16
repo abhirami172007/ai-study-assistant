@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Quiz - All Subjects &amp; Exams - AI Study Assistant</title>
+    <link rel="stylesheet" href="ai-quiz.css">
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">&#129302; AI Study</div>
+        <nav>
+            <a href="dashboard.html">&#128202; Dashboard</a>
+            <a href="ai-tutor.html">&#127891; AI Tutor</a>
+            <a href="study-planner.html">&#128197; Study Planner</a>
+            <a href="ai-quiz.html" class="active">&#9889; AI Quiz</a>
+            <a href="study-materials.html">&#128193; Study Materials</a>
+            <a href="progress.html">&#128200; Progress</a>
+            <a href="achievements.html">&#127942; Achievements</a>
+        </nav>
+        <div class="sidebar-bottom">
+            <a href="settings.html">&#9881;&#65039; Settings</a>
+            <a href="index.html" id="logout-link" onclick="logout(); return false;">&#128682; Logout</a>
+        </div>
+    </aside>
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h1>AI Quiz &amp; Adaptive Practice</h1>
+                <p>Generate quizzes for ANY academic subject, any exam type, in any language.</p>
+            </div>
+            <div class="topbar-right">
+                <div class="agent-badge">
+                    <span class="dot"></span>
+                    <span>Universal Quiz Engine: Active</span>
+                </div>
+                <div class="profile-icon" id="profile-icon">👤</div>
+            </div>
+        </header>
+
+        <div class="two-column-layout">
+            <div class="col-left">
+                <!-- QUIZ CONFIGURATION CARD -->
+                <div class="app-card" id="quiz-config-card">
+                    <div class="card-title">
+                        <div class="title-icon">&#9889;</div>
+                        <div>
+                            <h2>Universal Practice Quiz</h2>
+                            <p>Friendly to all academic fields, competitive exams, and languages</p>
+                        </div>
+                    </div>
+
+                    <form id="quiz-form">
+                        <!-- Subject Cluster -->
+                        <div class="form-group">
+                            <label for="quiz-subject">Academic Field / Stream</label>
+                            <select id="quiz-subject" class="form-select">
+                                <optgroup label="Computer Science &amp; IT">
+                                    <option value="Computer Science (Python, Java, C++, DSA, DBMS)">Computer Science (Python, Java, C++, DSA, DBMS)</option>
+                                    <option value="Artificial Intelligence &amp; Machine Learning">Artificial Intelligence &amp; Machine Learning</option>
+                                    <option value="Web Development &amp; Cloud Computing">Web Development &amp; Cloud Computing</option>
+                                </optgroup>
+                                <optgroup label="Pure &amp; Applied Sciences">
+                                    <option value="Physics (Mechanics, Thermodynamics, Optics, Quantum)">Physics (Mechanics, Thermodynamics, Optics, Quantum)</option>
+                                    <option value="Chemistry (Organic, Inorganic, Physical)">Chemistry (Organic, Inorganic, Physical)</option>
+                                    <option value="Biology (Botany, Zoology, Genetics, Ecology)">Biology (Botany, Zoology, Genetics, Ecology)</option>
+                                    <option value="Mathematics (Calculus, Algebra, Probability, Statistics)">Mathematics (Calculus, Algebra, Probability, Statistics)</option>
+                                </optgroup>
+                                <optgroup label="Commerce, Business &amp; Economics">
+                                    <option value="Accountancy &amp; Financial Management">Accountancy &amp; Financial Management</option>
+                                    <option value="Economics (Micro &amp; Macro Economics)">Economics (Micro &amp; Macro Economics)</option>
+                                    <option value="Business Studies &amp; Marketing">Business Studies &amp; Marketing</option>
+                                </optgroup>
+                                <optgroup label="Humanities, Arts &amp; Social Sciences">
+                                    <option value="History (Ancient, Medieval, Modern &amp; World)">History (Ancient, Medieval, Modern &amp; World)</option>
+                                    <option value="Geography &amp; Environmental Studies">Geography &amp; Environmental Studies</option>
+                                    <option value="Political Science &amp; Indian Constitution">Political Science &amp; Indian Constitution</option>
+                                    <option value="Psychology &amp; Sociology">Psychology &amp; Sociology</option>
+                                    <option value="English Literature &amp; Grammar">English Literature &amp; Grammar</option>
+                                </optgroup>
+                                <optgroup label="Engineering &amp; Technology">
+                                    <option value="Mechanical Engineering (Thermodynamics, Mechanics)">Mechanical Engineering (Thermodynamics, Mechanics)</option>
+                                    <option value="Civil Engineering (Structural, Surveying)">Civil Engineering (Structural, Surveying)</option>
+                                    <option value="Electrical &amp; Electronics Engineering">Electrical &amp; Electronics Engineering</option>
+                                </optgroup>
+                                <optgroup label="Medical &amp; Pharmacy">
+                                    <option value="Human Anatomy &amp; Physiology">Human Anatomy &amp; Physiology</option>
+                                    <option value="Pharmacology &amp; Pathology">Pharmacology &amp; Pathology</option>
+                                </optgroup>
+                                <optgroup label="Competitive &amp; Govt Examinations">
+                                    <option value="UPSC Civil Services (General Studies)">UPSC Civil Services (General Studies)</option>
+                                    <option value="Banking Exams (SBI / IBPS PO &amp; Clerk)">Banking Exams (SBI / IBPS PO &amp; Clerk)</option>
+                                    <option value="SSC CGL / Railway RRB (Quant &amp; Reasoning)">SSC CGL / Railway RRB (Quant &amp; Reasoning)</option>
+                                </optgroup>
+                                <optgroup label="Entrance Examinations">
+                                    <option value="JEE (Physics, Chemistry, Mathematics)">JEE (Physics, Chemistry, Mathematics)</option>
+                                    <option value="NEET (Physics, Chemistry, Biology)">NEET (Physics, Chemistry, Biology)</option>
+                                    <option value="GATE Examination">GATE Examination</option>
+                                    <option value="CAT / GMAT (Quant &amp; Data Interpretation)">CAT / GMAT (Quant &amp; Data Interpretation)</option>
+                                </optgroup>
+                                <optgroup label="School Curriculum">
+                                    <option value="School Class 10 (Science, Maths, Social Science)">School Class 10 (Science, Maths, Social Science)</option>
+                                    <option value="School Class 12 (Board Exam Syllabus)">School Class 12 (Board Exam Syllabus)</option>
+                                </optgroup>
+                                <optgroup label="Custom Write-In">
+                                    <option value="Custom Subject">Custom Subject (Type specific topic below)</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <!-- Specific Topic -->
+                        <div class="form-group">
+                            <label for="quiz-topic">Specific Chapter / Topic (Any Topic You Wish)</label>
+                            <input type="text" id="quiz-topic" class="form-input" placeholder="e.g., Photosynthesis, French Revolution, Profit &amp; Loss, SQL Joins, Newton's Laws">
+                        </div>
+
+                        <!-- Exam Type and Language Row -->
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div class="form-group">
+                                <label for="quiz-exam-type">Target Exam Type</label>
+                                <select id="quiz-exam-type" class="form-select">
+                                    <option value="College/University">🎓 College / University Semester</option>
+                                    <option value="Competitive Govt">🏛️ Competitive Govt (UPSC, Banking, SSC)</option>
+                                    <option value="Entrance Exam">🎯 Entrance Exam (JEE, NEET, GATE, CAT)</option>
+                                    <option value="School Boards">🏫 School Board Exam (10th/12th)</option>
+                                    <option value="Campus Placement">💻 Campus Placement &amp; Job Interview</option>
+                                    <option value="General Mastery">🧠 General Knowledge &amp; Self-Paced</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="quiz-language">Language</label>
+                                <select id="quiz-language" class="form-select">
+                                    <option value="English" selected>🌐 English</option>
+                                    <option value="Hindi">🇮🇳 Hindi (हिंदी)</option>
+                                    <option value="Tamil">🇮🇳 Tamil (தமிழ்)</option>
+                                    <option value="Telugu">🇮🇳 Telugu (తెలుగు)</option>
+                                    <option value="Malayalam">🇮🇳 Malayalam (മലയാളം)</option>
+                                    <option value="Kannada">🇮🇳 Kannada (ಕನ್ನಡ)</option>
+                                    <option value="Bengali">🇮🇳 Bengali (বাংলা)</option>
+                                    <option value="Marathi">🇮🇳 Marathi (मराठी)</option>
+                                    <option value="Spanish">🇪🇸 Spanish (Español)</option>
+                                    <option value="French">🇫🇷 French (Français)</option>
+                                    <option value="German">🇩🇪 German (Deutsch)</option>
+                                    <option value="Arabic">🇸🇦 Arabic (العربية)</option>
+                                    <option value="Hinglish">🇮🇳 Hinglish (Mix)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div class="form-group">
+                                <label for="quiz-difficulty">Difficulty Level</label>
+                                <select id="quiz-difficulty" class="form-select">
+                                    <option value="Adaptive">Adaptive (Auto-Calibrate)</option>
+                                    <option value="Beginner">Beginner (Foundational)</option>
+                                    <option value="Intermediate" selected>Intermediate (Standard Exam)</option>
+                                    <option value="Advanced">Advanced (High Difficulty)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="quiz-count">Number of Questions</label>
+                                <select id="quiz-count" class="form-select">
+                                    <option value="5">5 Questions (Quick Drill)</option>
+                                    <option value="10" selected>10 Questions (Standard Test)</option>
+                                    <option value="15">15 Questions (Full Mock)</option>
+                                    <option value="20">20 Questions (Comprehensive Exam)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" id="generate-btn" class="primary-button">&#9889; Generate Practice Quiz</button>
+                    </form>
+                </div>
+
+                <!-- ACTIVE QUIZ CONTAINER -->
+                <div class="app-card" id="quiz-container" style="display: none;">
+                    <div class="quiz-header-bar">
+                        <span class="quiz-progress-text" id="progress-indicator">Question 1 of 5</span>
+                        <span style="font-size: 13px; color: #6b7280;" id="quiz-badge-info">Subject</span>
+                    </div>
+
+                    <div class="question-text" id="question-text">
+                        Loading question...
+                    </div>
+
+                    <div class="options-list" id="options-container">
+                        <!-- Options populated dynamically -->
+                    </div>
+
+                    <div class="explanation-card" id="explanation-box">
+                        <strong>&#129302; Agentic Explanation:</strong>
+                        <p id="explanation-text" style="margin-top: 4px;"></p>
+                    </div>
+
+                    <button id="next-btn" class="primary-button" style="display: none;">Next Question &#10140;</button>
+                </div>
+
+                <!-- RESULTS CONTAINER -->
+                <div class="app-card" id="results-container" style="display: none;">
+                    <div class="results-card">
+                        <div class="score-badge" id="score-display">4 / 5</div>
+                        <h2 style="font-size: 22px; color: #111827; margin-bottom: 6px;" id="result-title">Great Job!</h2>
+                        <p style="color: #6b7280; font-size: 14px;" id="result-subtitle">You have demonstrated solid conceptual understanding.</p>
+
+                        <div class="remedial-box" id="remedial-analysis">
+                            <strong style="color: #991b1b; display: block; margin-bottom: 4px;">&#9888;&#65039; Agentic Diagnosis:</strong>
+                            <p id="weak-topic-diagnosis" style="font-size: 13.5px; color: #7f1d1d;"></p>
+                        </div>
+
+                        <div style="display: flex; gap: 12px; justify-content: center; margin-top: 20px;">
+                            <button id="remedial-btn" class="primary-button" style="width: auto; background: #dc2626;">&#9889; Practice Weak Area</button>
+                            <button onclick="resetQuiz()" class="primary-button" style="width: auto;">&#128260; New Quiz</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-right">
+                <!-- PURPLE GRADIENT CARD -->
+                <div class="info-card">
+                    <div class="ai-icon-large">&#9889;</div>
+                    <h2>All-Subject &amp; Multilingual AI</h2>
+                    <p>Prepare for any university exam, competitive test, or school board in your preferred language.</p>
+                    <div class="ai-steps">
+                        <div class="step">
+                            <span>1</span>
+                            <div>
+                                <h4>All Subjects Covered</h4>
+                                <p>Science, Commerce, Arts, Engineering, Medical, Law &amp; Competitive tests.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span>2</span>
+                            <div>
+                                <h4>Multilingual Explanations</h4>
+                                <p>Take quizzes and read explanations in English, Hindi, Tamil, Telugu, and more.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span>3</span>
+                            <div>
+                                <h4>Adaptive Remediation</h4>
+                                <p>Detects weak topics and automatically builds targeted improvement sets.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RECENT QUIZ SCORES -->
+                <div class="app-card">
+                    <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 15px; color: #111827;">Sample Covered Exams</h3>
+                    <div style="font-size: 13.5px; color: #4b5563; line-height: 1.8;">
+                        <div>&#10004; <strong>College:</strong> B.Tech, BSc, B.Com, BA, BCA, MBBS, LLB</div>
+                        <div>&#10004; <strong>Govt Exams:</strong> UPSC, SSC CGL, Banking PO/Clerk, RRB</div>
+                        <div>&#10004; <strong>Entrance:</strong> JEE, NEET, GATE, CAT, GRE, GMAT</div>
+                        <div>&#10004; <strong>School:</strong> CBSE, ICSE, State Boards Class 6-12</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="ai-quiz.js"></script>
+</body>
+</html>

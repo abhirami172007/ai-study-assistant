@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tutor - All Subjects, Exams &amp; Languages - AI Study Assistant</title>
+    <link rel="stylesheet" href="ai-tutor.css">
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">&#129302; AI Study</div>
+        <nav>
+            <a href="dashboard.html">&#128202; Dashboard</a>
+            <a href="ai-tutor.html" class="active">&#127891; AI Tutor</a>
+            <a href="study-planner.html">&#128197; Study Planner</a>
+            <a href="ai-quiz.html">&#9889; AI Quiz</a>
+            <a href="study-materials.html">&#128193; Study Materials</a>
+            <a href="progress.html">&#128200; Progress</a>
+            <a href="achievements.html">&#127942; Achievements</a>
+        </nav>
+        <div class="sidebar-bottom">
+            <a href="settings.html">&#9881;&#65039; Settings</a>
+            <a href="index.html" id="logout-link" onclick="logout(); return false;">&#128682; Logout</a>
+        </div>
+    </aside>
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h1>AI Tutor</h1>
+                <p>Universal AI academic tutor for all subjects, competitive exams, school &amp; college in 12+ languages.</p>
+            </div>
+            <div class="topbar-right">
+                <!-- LANGUAGE & EXAM SELECTORS IN TOPBAR -->
+                <select id="tutor-lang-select" class="form-select" style="padding: 7px 12px; font-size: 13px; font-weight: 600; width: auto; background: white; border: 1.5px solid #5b4bdb; color: #5b4bdb; border-radius: 9px; cursor: pointer;">
+                    <option value="English" selected>🌐 English</option>
+                    <option value="Hindi">🇮🇳 Hindi (हिंदी)</option>
+                    <option value="Tamil">🇮🇳 Tamil (தமிழ்)</option>
+                    <option value="Telugu">🇮🇳 Telugu (తెలుగు)</option>
+                    <option value="Malayalam">🇮🇳 Malayalam (മലയാളം)</option>
+                    <option value="Kannada">🇮🇳 Kannada (ಕನ್ನಡ)</option>
+                    <option value="Bengali">🇮🇳 Bengali (বাংলা)</option>
+                    <option value="Marathi">🇮🇳 Marathi (मराठी)</option>
+                    <option value="Spanish">🇪🇸 Spanish (Español)</option>
+                    <option value="French">🇫🇷 French (Français)</option>
+                    <option value="German">🇩🇪 German (Deutsch)</option>
+                    <option value="Arabic">🇸🇦 Arabic (العربية)</option>
+                    <option value="Hinglish">🇮🇳 Hinglish</option>
+                </select>
+
+                <select id="tutor-exam-select" class="form-select" style="padding: 7px 12px; font-size: 13px; font-weight: 600; width: auto; background: white; border: 1.5px solid #e5e7eb; border-radius: 9px; cursor: pointer;">
+                    <option value="College/University" selected>🎓 College / Semester Exam</option>
+                    <option value="UPSC & Civil Services">🏛️ UPSC / Civil Services</option>
+                    <option value="Banking & SSC">💼 Banking &amp; SSC (Quant + Reasoning)</option>
+                    <option value="JEE & NEET Entrance">🎯 JEE &amp; NEET Entrance</option>
+                    <option value="GATE & CAT">📈 GATE &amp; CAT</option>
+                    <option value="School Class 6-12">🏫 School Boards (10th/12th)</option>
+                    <option value="Placement & Interview">💻 Placement &amp; Coding Interview</option>
+                </select>
+
+                <div class="profile-icon" id="profile-icon">👤</div>
+            </div>
+        </header>
+
+        <!-- TUTOR CHAT CONTAINER -->
+        <div class="tutor-container">
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div class="ai-avatar">&#129302;</div>
+                <div>
+                    <h2>Universal AI Study Tutor</h2>
+                    <p><span class="pulse-dot"></span> Online &bull; Teaching all subjects in <span id="current-lang-badge" style="font-weight: 700; text-decoration: underline;">English</span></p>
+                </div>
+            </div>
+
+            <!-- Chat Area -->
+            <div class="chat-area" id="chat-area">
+                <div class="message ai-message">
+                    <div class="message-avatar">&#129302;</div>
+                    <div class="message-content">
+                        <strong>AI Tutor</strong>
+                        <p id="welcome-message-text">
+                            Hello! &#128075; I'm your Universal AI Study Assistant. I can teach <strong>any subject</strong> (Computer Science, Physics, Chemistry, Biology, Mathematics, History, Economics, Commerce, Law, Medicine), help you prepare for <strong>any exam</strong> (University, UPSC, Banking, SSC, JEE, NEET, GATE, Boards), and speak in <strong>12+ languages</strong>. What topic would you like to master today?
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Questions across All Fields -->
+            <div class="quick-questions-wrapper">
+                <div class="quick-title">Try asking any subject:</div>
+                <div class="quick-questions" id="quick-prompts-container">
+                    <button type="button" class="quick-question" data-question="Explain photosynthesis and light reaction in plants">🌿 Biology: Photosynthesis</button>
+                    <button type="button" class="quick-question" data-question="Explain Newton's laws of motion with real world examples">🔬 Physics: Newton's Laws</button>
+                    <button type="button" class="quick-question" data-question="Explain Fundamental Rights under Indian Constitution for UPSC">🏛️ Polity: Fundamental Rights</button>
+                    <button type="button" class="quick-question" data-question="Teach me Profit and Loss shortcuts for Banking & SSC exams">📊 Math: Profit &amp; Loss</button>
+                    <button type="button" class="quick-question" data-question="Explain Object Oriented Programming pillars with code">💻 CS: OOP Concepts</button>
+                    <button type="button" class="quick-question" data-question="Explain double entry accounting and balance sheet">📈 Commerce: Balance Sheet</button>
+                </div>
+            </div>
+
+            <!-- Input Bar -->
+            <div class="input-area">
+                <input type="text" id="tutor-input" placeholder="Ask anything in any language (English, हिंदी, தமிழ், etc.)..." autofocus>
+                <button type="button" id="send-button" class="send-button" title="Send Question">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Bottom Actions -->
+            <div class="tutor-actions">
+                <button type="button" id="notes-button">&#128221; Generate Exam Notes</button>
+                <button type="button" id="quiz-button" onclick="window.location.href='ai-quiz.html'">&#127919; Practice Quiz</button>
+                <button type="button" id="examples-button">&#128161; Real-World Examples</button>
+                <button type="button" id="clear-button">&#128260; Clear Chat</button>
+            </div>
+        </div>
+
+        <!-- Learning Tips -->
+        <div class="learning-tips">
+            <h2>Universal Learning Features</h2>
+            <div class="tips-container">
+                <div class="tip-card">
+                    <span>🌐</span>
+                    <div>
+                        <h3>Multilingual Explanations</h3>
+                        <p>Switch languages anytime from the top bar. The AI answers fluently in Hindi, Tamil, Telugu, and more.</p>
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <span>🏛️</span>
+                    <div>
+                        <h3>All Exam Modes</h3>
+                        <p>Toggle between College Theory, Competitive Short-Cuts, and Entrance Problem Solving.</p>
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <span>⚡</span>
+                    <div>
+                        <h3>Direct Quiz Handoff</h3>
+                        <p>After learning any topic, click 'Practice Quiz' to test your retention with adaptive MCQs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="ai-tutor.js"></script>
+</body>
+</html>

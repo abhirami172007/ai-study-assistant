@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements - AI Study Assistant</title>
+    <link rel="stylesheet" href="achievements.css">
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">&#129302; AI Study</div>
+        <nav>
+            <a href="dashboard.html">&#128202; Dashboard</a>
+            <a href="ai-tutor.html">&#127891; AI Tutor</a>
+            <a href="study-planner.html">&#128197; Study Planner</a>
+            <a href="ai-quiz.html">&#9889; AI Quiz</a>
+            <a href="study-materials.html">&#128193; Study Materials</a>
+            <a href="progress.html">&#128200; Progress</a>
+            <a href="achievements.html" class="active">&#127942; Achievements</a>
+        </nav>
+        <div class="sidebar-bottom">
+            <a href="settings.html">&#9881;&#65039; Settings</a>
+            <a href="index.html" id="logout-link" onclick="logout(); return false;">&#128682; Logout</a>
+        </div>
+    </aside>
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h1>Student Achievements</h1>
+                <p>Milestones, study badges, and learning streaks.</p>
+            </div>
+            <div class="topbar-right">
+                <div class="agent-badge">
+                    <span class="dot"></span>
+                    <span>Rank: Top 10% Scholar</span>
+                </div>
+                <div class="profile-icon" id="profile-icon">👤</div>
+            </div>
+        </header>
+
+        <!-- STATS GRID -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">&#127942;</div>
+                <div class="stat-info">
+                    <p>Badges Unlocked</p>
+                    <h3>6 / 10</h3>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">&#11088;</div>
+                <div class="stat-info">
+                    <p>Total Learning Points</p>
+                    <h3>1,250 XP</h3>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">&#128293;</div>
+                <div class="stat-info">
+                    <p>Study Streak</p>
+                    <h3>5 Days</h3>
+                </div>
+            </div>
+        </section>
+
+        <div class="two-column-layout">
+            <div class="col-left">
+                <div class="app-card">
+                    <div class="card-title">
+                        <div class="title-icon">&#127942;</div>
+                        <div>
+                            <h2>Badges &amp; Learning Milestones</h2>
+                            <p>Unlocked by consistent study, high quiz scores, and weak-area mastery</p>
+                        </div>
+                    </div>
+
+                    <div class="badges-grid">
+                        <div class="badge-item unlocked">
+                            <div class="badge-icon">&#128640;</div>
+                            <div class="badge-info">
+                                <div class="badge-name">First Steps</div>
+                                <div class="badge-desc">Registered account and created first AI study goal</div>
+                                <span class="badge-status unlocked">&#10004; Unlocked • 50 XP</span>
+                            </div>
+                        </div>
+
+                        <div class="badge-item unlocked">
+                            <div class="badge-icon">&#128197;</div>
+                            <div class="badge-info">
+                                <div class="badge-name">Master Planner</div>
+                                <div class="badge-desc">Generated personalized multi-subject study schedule</div>
+                                <span class="badge-status unlocked">&#10004; Unlocked • 100 XP</span>
+                            </div>
+                        </div>
+
+                        <div class="badge-item unlocked">
+                            <div class="badge-icon">&#9889;</div>
+                            <div class="badge-info">
+                                <div class="badge-name">Quiz Whiz</div>
+                                <div class="badge-desc">Scored 90%+ on an AI adaptive quiz</div>
+                                <span class="badge-status unlocked">&#10004; Unlocked • 150 XP</span>
+                            </div>
+                        </div>
+
+                        <div class="badge-item unlocked">
+                            <div class="badge-icon">&#128193;</div>
+                            <div class="badge-info">
+                                <div class="badge-name">Knowledge Explorer</div>
+                                <div class="badge-desc">Uploaded lecture notes and generated AI summaries</div>
+                                <span class="badge-status unlocked">&#10004; Unlocked • 100 XP</span>
+                            </div>
+                        </div>
+
+                        <div class="badge-item unlocked">
+                            <div class="badge-icon">&#128293;</div>
+                            <div class="badge-info">
+                                <div class="badge-name">5-Day Streak</div>
+                                <div class="badge-desc">Maintained a 5-day continuous study habit</div>
+                                <span class="badge-status unlocked">&#10004; Unlocked • 200 XP</span>
+                            </div>
+                        </div>
+
+                        <div class="badge-item unlocked">
+                            <div class="badge-icon">&#127919;</div>
+                            <div class="badge-info">
+                                <div class="badge-name">Weakness Conqueror</div>
+                                <div class="badge-desc">Completed a remedial drill and boosted topic score</div>
+                                <span class="badge-status unlocked">&#10004; Unlocked • 250 XP</span>
+                            </div>
+                        </div>
+
+                        <div class="badge-item">
+                            <div class="badge-icon">&#127891;</div>
+                            <div class="badge-info">
+                                <div class="badge-name">AI Scholar</div>
+                                <div class="badge-desc">Ask 25+ academic questions to the AI Tutor</div>
+                                <span class="badge-status in-progress">&#9203; In Progress (18/25) • 200 XP</span>
+                            </div>
+                        </div>
+
+                        <div class="badge-item">
+                            <div class="badge-icon">&#128081;</div>
+                            <div class="badge-info">
+                                <div class="badge-name">Exam Ace</div>
+                                <div class="badge-desc">Complete all milestones across an entire exam plan</div>
+                                <span class="badge-status in-progress">&#9203; In Progress (75%) • 300 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-right">
+                <!-- PURPLE GRADIENT CARD -->
+                <div class="info-card">
+                    <div class="ai-icon-large">&#127942;</div>
+                    <h2>Gamified Mastery</h2>
+                    <p>Consistent daily habits beat cramming! Your AI agent awards XP for every completed milestone and remedial quiz.</p>
+                    <div class="ai-steps">
+                        <div class="step">
+                            <span>1</span>
+                            <div>
+                                <h4>Daily Habits</h4>
+                                <p>Earn XP for every quiz, chat, and document summary.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span>2</span>
+                            <div>
+                                <h4>Double XP Drills</h4>
+                                <p>Tackle identified weak areas to earn bonus achievement points.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span>3</span>
+                            <div>
+                                <h4>College Ready</h4>
+                                <p>Reach level 10 Scholar to ensure complete exam readiness.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="achievements.js"></script>
+</body>
+</html>

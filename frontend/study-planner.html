@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Planner - AI Study Assistant</title>
+    <link rel="stylesheet" href="study-planner.css">
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">&#129302; AI Study</div>
+        <nav>
+            <a href="dashboard.html">&#128202; Dashboard</a>
+            <a href="ai-tutor.html">&#127891; AI Tutor</a>
+            <a href="study-planner.html" class="active">&#128197; Study Planner</a>
+            <a href="ai-quiz.html">&#9889; AI Quiz</a>
+            <a href="study-materials.html">&#128193; Study Materials</a>
+            <a href="progress.html">&#128200; Progress</a>
+            <a href="achievements.html">&#127942; Achievements</a>
+        </nav>
+        <div class="sidebar-bottom">
+            <a href="settings.html">&#9881;&#65039; Settings</a>
+            <a href="index.html" id="logout-link" onclick="logout(); return false;">&#128682; Logout</a>
+        </div>
+    </aside>
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h1>AI Study Planner</h1>
+                <p>Create a personalized study plan with AI.</p>
+            </div>
+            <div class="profile-icon" id="profile-icon">👤</div>
+        </header>
+
+        <!-- PLANNER 2-COLUMN LAYOUT -->
+        <div class="planner-layout">
+            <!-- Left Form Card -->
+            <div class="planner-card">
+                <div class="card-title">
+                    <div class="title-icon">&#129302;</div>
+                    <div>
+                        <h2>Create Your Study Plan</h2>
+                        <p>Tell us about your study goals.</p>
+                    </div>
+                </div>
+
+                <form id="planner-form">
+                    <label for="exam-type">Target Exam Type</label>
+                    <select id="exam-type" required>
+                        <option value="College/University Semester" selected>🎓 College / University Semester Exam</option>
+                        <option value="UPSC / Civil Services">🏛️ UPSC / State PSC Civil Services</option>
+                        <option value="Banking &amp; SSC Exams">💼 Banking (SBI/IBPS) &amp; SSC CGL / Railway</option>
+                        <option value="JEE &amp; NEET Entrance">🎯 JEE (Mains &amp; Adv) / NEET Medical</option>
+                        <option value="GATE &amp; CAT Exams">📈 GATE &amp; CAT / Management</option>
+                        <option value="School Board Exams">🏫 School Class 10 &amp; 12 Board Exams</option>
+                        <option value="Campus Placement">💻 Campus Placement &amp; Job Interview</option>
+                        <option value="General Academic">📚 General Academic / Self-Paced</option>
+                    </select>
+
+                    <label for="subjects">Subjects (Any academic stream)</label>
+                    <input type="text" id="subjects" placeholder="e.g., Physics, Chem, Bio OR History, Polity, Econ OR Python, DBMS, DSA" required>
+
+                    <label for="exam-date">Exam Date</label>
+                    <input type="date" id="exam-date" required>
+
+                    <label for="study-time">Available Study Time</label>
+                    <select id="study-time" required>
+                        <option value="" disabled selected>Select daily study time</option>
+                        <option value="1-2 hours">1-2 hours per day</option>
+                        <option value="2-4 hours">2-4 hours per day</option>
+                        <option value="4+ hours">4+ hours per day</option>
+                    </select>
+
+                    <label for="level">Current Knowledge Level</label>
+                    <select id="level" required>
+                        <option value="" disabled selected>Select your level</option>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
+
+                    <label for="goal">Your Study Goal</label>
+                    <textarea id="goal" placeholder="Example: I want to score above 80% in my exam." required></textarea>
+
+                    <button type="submit" class="generate-button">&#10024; Generate AI Study Plan</button>
+                    <div id="planner-status" class="planner-status"></div>
+                </form>
+            </div>
+
+            <!-- Right Info Card -->
+            <div class="info-card">
+                <div class="ai-icon">&#129504;</div>
+                <h2>Let AI Plan Your Learning</h2>
+                <p>Our AI analyzes your subjects, exam date, available time, and current knowledge level to create a personalized study plan.</p>
+
+                <div class="ai-steps">
+                    <div class="step">
+                        <span>1</span>
+                        <div>
+                            <h4>Analyze</h4>
+                            <p>Understand your study requirements.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span>2</span>
+                        <div>
+                            <h4>Plan</h4>
+                            <p>Create a personalized schedule.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span>3</span>
+                        <div>
+                            <h4>Adapt</h4>
+                            <p>Improve the plan based on your progress.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TODAY'S STUDY PLAN CARD -->
+        <section class="sample-plan">
+            <div class="section-header">
+                <div>
+                    <h2>Today's Study Plan &amp; Milestones</h2>
+                    <p>Your personalized study tasks generated by AI</p>
+                </div>
+                <div class="date-badge" id="today-date">Today</div>
+            </div>
+
+            <div id="study-tasks">
+                <!-- Study plans load dynamically here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="study-planner.js"></script>
+</body>
+</html>

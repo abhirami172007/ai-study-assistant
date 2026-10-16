@@ -1,0 +1,10 @@
+.env
+__pycache__/
+*.py[cod]
+cloudflared.exe
+*.zip
+*.exe
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

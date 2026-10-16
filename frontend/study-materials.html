@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Materials - AI Study Assistant</title>
+    <link rel="stylesheet" href="study-materials.css">
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">&#129302; AI Study</div>
+        <nav>
+            <a href="dashboard.html">&#128202; Dashboard</a>
+            <a href="ai-tutor.html">&#127891; AI Tutor</a>
+            <a href="study-planner.html">&#128197; Study Planner</a>
+            <a href="ai-quiz.html">&#9889; AI Quiz</a>
+            <a href="study-materials.html" class="active">&#128193; Study Materials</a>
+            <a href="progress.html">&#128200; Progress</a>
+            <a href="achievements.html">&#127942; Achievements</a>
+        </nav>
+        <div class="sidebar-bottom">
+            <a href="settings.html">&#9881;&#65039; Settings</a>
+            <a href="index.html" id="logout-link" onclick="logout(); return false;">&#128682; Logout</a>
+        </div>
+    </aside>
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h1>Study Materials & AI Reader</h1>
+                <p>Upload lecture slides, notes, PDFs, or docs and learn interactively.</p>
+            </div>
+            <div class="topbar-right">
+                <div class="agent-badge">
+                    <span class="dot"></span>
+                    <span>Document Engine: Ready</span>
+                </div>
+                <div class="profile-icon" id="profile-icon">👤</div>
+            </div>
+        </header>
+
+        <div class="two-column-layout">
+            <div class="col-left">
+                <!-- UPLOAD CARD -->
+                <div class="app-card">
+                    <div class="card-title">
+                        <div class="title-icon">&#128193;</div>
+                        <div>
+                            <h2>Upload Study Material</h2>
+                            <p>Upload PDFs, Word docs, PowerPoints, or text lecture handouts</p>
+                        </div>
+                    </div>
+
+                    <form id="upload-form">
+                        <div class="dropzone" id="dropzone" onclick="document.getElementById('file-input').click()">
+                            <div class="dropzone-icon">&#9729;&#65039;</div>
+                            <p id="drop-label">Click or drag &amp; drop files here to upload</p>
+                            <small>Supports PDF, DOCX, PPTX, TXT (up to 50MB)</small>
+                            <input type="file" id="file-input" style="display: none;" accept=".pdf,.docx,.pptx,.txt">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="doc-title">Document Title</label>
+                            <input type="text" id="doc-title" class="form-input" placeholder="e.g., Unit 3 - Database Indexing & B-Trees">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="doc-subject">Subject</label>
+                            <select id="doc-subject" class="form-select">
+                                <option value="Database Management (DBMS)">Database Management (DBMS)</option>
+                                <option value="Python Programming">Python Programming</option>
+                                <option value="Machine Learning">Machine Learning</option>
+                                <option value="Data Structures & Algorithms">Data Structures & Algorithms</option>
+                                <option value="Computer Networks">Computer Networks</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" id="upload-btn" class="primary-button">&#128228; Upload &amp; Analyze with AI</button>
+                    </form>
+                </div>
+
+                <!-- DOCUMENT VIEWER / SUMMARY -->
+                <div class="app-card" id="summary-card" style="display: none;">
+                    <div class="card-title">
+                        <div class="title-icon">&#129302;</div>
+                        <div>
+                            <h2 id="summary-title">AI Summary &amp; Key Concepts</h2>
+                            <p id="summary-meta">Extracted definitions and exam formulas</p>
+                        </div>
+                    </div>
+                    <div class="viewer-card" id="summary-content" style="display: block;">
+                        <!-- AI Generated summary populated here -->
+                    </div>
+                </div>
+
+                <!-- DOCUMENT LIBRARY -->
+                <div class="app-card">
+                    <div class="card-title">
+                        <div class="title-icon">&#128218;</div>
+                        <div>
+                            <h2>My Document Library</h2>
+                            <p>All indexed materials available for AI search &amp; testing</p>
+                        </div>
+                    </div>
+                    <div id="materials-list">
+                        <!-- Documents populated dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-right">
+                <!-- PURPLE GRADIENT CARD -->
+                <div class="info-card">
+                    <div class="ai-icon-large">&#128196;</div>
+                    <h2>Document Intelligence</h2>
+                    <p>Your AI agent reads your syllabus notes using OCR and semantic extraction to create concise study tools.</p>
+                    <div class="ai-steps">
+                        <div class="step">
+                            <span>1</span>
+                            <div>
+                                <h4>Parse &amp; OCR</h4>
+                                <p>Extracts text and diagrams from lecture slides and textbook PDFs.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span>2</span>
+                            <div>
+                                <h4>Synthesize</h4>
+                                <p>Generates high-yield exam bullet points and formula flashcards.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span>3</span>
+                            <div>
+                                <h4>Custom Quizzes</h4>
+                                <p>Drafts mock exam tests directly from your professor's notes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QUICK TIP CARD -->
+                <div class="app-card">
+                    <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 12px; color: #111827;">&#128161; College Pro Tip</h3>
+                    <p style="font-size: 13.5px; color: #6b7280; line-height: 1.5;">
+                        Upload your university previous year questions (PYQs) or lecture PPTs. The AI Tutor can cross-examine you on specific slides before your midterms!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="study-materials.js"></script>
+</body>
+</html>
